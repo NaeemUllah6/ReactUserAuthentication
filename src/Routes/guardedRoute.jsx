@@ -5,7 +5,7 @@ import Profile from "../Pages/Profile";
 import Settings from "../Pages/Settings";
 import HigherOrderComponent from "../HOC/Authentication";
 import Login from "../Authentication/Login";
-import Signup from "../Authentication/Signup";
+import Signup from "../Authentication/signup";
 import IfAuthenticated from './IfAuthenticated'
 
 const AppRoutes = () => {
