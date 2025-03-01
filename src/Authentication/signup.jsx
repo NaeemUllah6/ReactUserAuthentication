@@ -98,7 +98,7 @@ const SignupForm = () => {
           </button>
         </form>
         <p className="mt-4 text-center text-gray-500">
-          Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</Link>
+          Already have an accountt? <Link to="/login" className="text-blue-500 hover:underline">Login</Link>
         </p>
       </div>
     </div>
