@@ -21,6 +21,7 @@ useEffect(()=>{
         "/billing" : 'Billing',
         "/inbox" : 'Inbox',
         "/documents" : 'Documents',
+        "/people" : 'People',
 
     }
     setHeaderheading (routeNames[location.pathname] || "Dashboard");

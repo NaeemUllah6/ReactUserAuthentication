@@ -1,36 +1,45 @@
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
+import HigherOrderComponent from "../HOC/Authentication";
 import Dashboard from "../Pages/Dashboard";
 import Profile from "../Pages/Profile";
 import Settings from "../Pages/Settings";
-import Analytics from '../Pages/analytics'
-import Reports from '../Pages/reports'
-import Users from '../Pages/users'
-import Projects from '../Pages/projects'
-import Billing from '../Pages/billing'
-import Inbox from '../Pages/inbox'
+import Analytics from "../Pages/analytics";
+import Reports from "../Pages/reports";
+import Users from "../Pages/users";
+import Projects from "../Pages/projects";
+import Billing from "../Pages/billing";
+import Inbox from "../Pages/inbox";
 import Document from "../Pages/document";
-import HigherOrderComponent from '../HOC/Authentication'
+import People from "../Pages/people";
+
+
+const routeConfig = [
+  { path: "/", element: <Dashboard /> },
+  { path: "/profile", element: <Profile /> },
+  { path: "/settings", element: <Settings /> },
+  { path: "/analytics", element: <Analytics /> },
+  { path: "/reports", element: <Reports /> },
+  { path: "/users", element: <Users /> },
+  { path: "/projects", element: <Projects /> },
+  { path: "/billing", element: <Billing /> },
+  { path: "/inbox", element: <Inbox /> },
+  { path: "/document", element: <Document /> },
+  { path: "/people", element: <People /> },
+
+];
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<HigherOrderComponent />}>
         <Route path="/" element={<DashboardLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/billing" element={<Billing />} />
-          <Route path="/inbox" element={<Inbox />} />
-          <Route path="/document" element={<Document />} />
+          {routeConfig.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
         </Route>
       </Route>
     </Routes>
-
   );
 };
 

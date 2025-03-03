@@ -31,7 +31,6 @@ const Login = () => {
         }
     };
 
-
     return (
         <>
             {modal && <div id="popup-modal" tabIndex="-1" className={` overflow-y-auto bg-black/70 overflow-x-hidden fixed top-0 right-0  z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full ${modal ? 'block' : 'hidden'}`}>
