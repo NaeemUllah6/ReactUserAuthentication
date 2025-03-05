@@ -33,7 +33,7 @@ useEffect(()=>{
         <div>
           <h1 className="text-xl font-bold ps-10 md:ps-0">{headerheading}</h1>
         </div>
-        <button onClick={Logout} className="border-red-500 border hover:bg-red-500 px-4 py-2 rounded cursor-pointer">Logout</button>
+        <button onClick={Logout} className="border-red-500 border hover:bg-red-500 px-3 py-1 rounded cursor-pointer">Logout</button>
       </div>
     );
   };

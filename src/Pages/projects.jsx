@@ -55,7 +55,7 @@ const Projects = () => {
         <h2 className="text-xl font-semibold">Project List</h2>
         <table className="w-full mt-4 border-collapse border">
           <thead>
-            <tr className="bg-gray-200">
+            <tr className="bg-gray-200 border">
               <th className="border p-2 text-left">Project Name</th>
               <th className="border p-2">Status</th>
               <th className="border p-2">Deadline</th>
@@ -67,7 +67,7 @@ const Projects = () => {
                 <tr key={project.id} className="border">
                   <td className="p-2">{project.name}</td>
                   <td
-                    className={`p-2 font-semibold ${project.status === "Ongoing"
+                    className={`p-2 font-semibold text-center border ${project.status === "Ongoing"
                         ? "text-blue-500"
                         : project.status === "Completed"
                           ? "text-green-500"
@@ -76,7 +76,7 @@ const Projects = () => {
                   >
                     {project.status}
                   </td>
-                  <td className="p-2">{project.deadline}</td>
+                  <td className="p-2 text-center">{project.deadline}</td>
                 </tr>
               ))
             ) : (
@@ -90,7 +90,6 @@ const Projects = () => {
         </table>
       </div>
 
-      {/* Pagination Controls */}
       <div className="mt-4 flex justify-center">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 
 const peopleData = [
@@ -9,6 +10,21 @@ const peopleData = [
 
 const PeopleDashboard = () => {
   const [people, setPeople] = useState(peopleData);
+
+  // const [loading, setLoading] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6");
+        setPeople(data);
+      }
+      catch (error) {
+        console.log(error, 'data not found')
+      }
+    }
+    fetchData()
+  }, [])
+
 
   return (
     <div className="">
@@ -21,7 +37,7 @@ const PeopleDashboard = () => {
       </div>
 
       {/* People Table */}
-      <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+      {/* <div className="overflow-x-auto bg-white shadow-md rounded-lg">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-gray-200">
@@ -42,7 +58,7 @@ const PeopleDashboard = () => {
                 <td className="p-3">{person.role}</td>
                 <td className="p-3">{person.email}</td>
                 <td className="p-3">
-                  <span className={`px-2 py-1 rounded text-sm font-medium 
+                  <span className={`px-2 py-1 rounded-full text-sm font-medium 
                     ${person.status === "Active" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}>
                     {person.status}
                   </span>
@@ -51,6 +67,19 @@ const PeopleDashboard = () => {
             ))}
           </tbody>
         </table>
+       
+      </div> */}
+      <h2 className="text-3xl font-semibold text-center">This data is coming from the API</h2>
+      <div className="mt-5 grid grid-cols-3 gap-2">
+        {
+          people.map((item, index) => (
+            <div key={index} className="border bg-gray-900  text-white p-4 rounded-lg flex flex-col justify-center">
+              <p>{item.title}</p>
+              <a href={item.url}>{item.url}</a>
+              <a href={item.thumbnailUrl}>{item.thumbnailUrl}</a>
+            </div>
+          ))
+        }
       </div>
     </div>
   );

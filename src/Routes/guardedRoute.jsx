@@ -11,8 +11,9 @@ import Projects from "../Pages/projects";
 import Billing from "../Pages/billing";
 import Inbox from "../Pages/inbox";
 import Document from "../Pages/document";
-import People from "../Pages/people";
-
+import People from "../Pages/People";
+import MovieList from '../ReduxToolkit/movielist'
+import InputMovie from '../ReduxToolkit/movieInput'
 
 const routeConfig = [
   { path: "/", element: <Dashboard /> },
@@ -26,6 +27,9 @@ const routeConfig = [
   { path: "/inbox", element: <Inbox /> },
   { path: "/document", element: <Document /> },
   { path: "/people", element: <People /> },
+  { path: "/movielist", element : <MovieList/>},
+  { path: "/movieInput", element : <InputMovie/>}
+
 
 ];
 

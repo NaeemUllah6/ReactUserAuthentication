@@ -9,10 +9,10 @@
   
   ::-webkit-scrollbar-thumb {
     background: red;
-    border-radius: 4px;
+    
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgb(179, 43, 43);
   }
   
